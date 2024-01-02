@@ -57,7 +57,7 @@
 						<hr>
 
 						<a href="/products/edit/<%= id %>" class="action-button edit">EDITAR PRODUCTO</a>
-						<form action="/products/delete/<%= id %>" method="POST" style="display: inline-flex">
+						<form action="/products/delete/<%= id %>?_method=DELETE" method="POST" style="display: inline-flex"  onsubmit="return confirm('¿seguro desea ELIMINAR este producto?');">
 							<button type="submit" class="action-button delete">ELIMINAR</button>
 						</form>
 					</article>

@@ -90,6 +90,16 @@ const controller = {
   // Delete - Delete one product from DB
   destroy: (req, res) => {
     // Do the magic
+
+    const productId = +req.params.id;
+    const productIndex = products.findIndex(
+      (product) => product.id === productId
+    );
+    if (productIndex !== -1) {
+      products.splice(productIndex, 1);
+      fs.writeFileSync(productsFilePath, JSON.stringify(products), "utf-8");
+      return res.redirect("/products");
+    }
   },
 };
 
